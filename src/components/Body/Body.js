@@ -1,16 +1,20 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class Body extends Component {
+class Body extends Component {
   render () {
-    const {newNotification} = this.props
-
     return (
       <div>
         <h1>Body</h1>
         <div>
-          <button onClick={newNotification}>New notification</button>
+          <button onClick={
+            () => this.props.dispatch({type: 'NEW_NOTIFICATION'})
+          }
+          >New notification</button>
         </div>
       </div>
     )
   }
 }
+
+export default connect()(Body)

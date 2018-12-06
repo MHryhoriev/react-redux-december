@@ -15,25 +15,17 @@ class App extends Component {
   //   this.newNotification = this.newNotification.bind(this)
   // }
 
-  state = {
-    username: "Andrew",
-    notifications: 5
-  }
-
   newNotification = () => {
     this.setState({notifications: this.state.notifications + 1})
   }
 
   render () {
     console.log('App', this)
-    const {username, notifications} = this.state
 
     return (
       <div className="App">
-        <button onClick={() => this.newNotification()}>New notification in App</button>
-
-        <Header user={username} notifications={notifications}/>
-        <Body newNotification={this.newNotification}/>
+        <Header/>
+        <Body/>
         <Footer/>
       </div>
     )

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class Header extends Component {
+class Header extends Component {
   render () {
     console.log('Header', this)
     const {user, notifications} = this.props
@@ -14,3 +15,14 @@ export default class Header extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  console.log('mapStateToProps', state);
+
+  return {
+    user: state.username,
+    notifications: state.notifications
+  }
+}
+
+export default connect(mapStateToProps)(Header)
